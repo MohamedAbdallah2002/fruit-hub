@@ -22,6 +22,7 @@ class FruitHub extends StatelessWidget {
       supportedLocales: S.delegate.supportedLocales,
       locale: const Locale('ar', ''),
       debugShowCheckedModeBanner: false,
+      theme: ThemeData.light().copyWith(scaffoldBackgroundColor: Colors.white),
       onGenerateRoute: RouteHandler.generateRoute,
     );
   }
