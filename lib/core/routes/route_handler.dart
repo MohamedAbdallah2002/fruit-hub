@@ -1,0 +1,16 @@
+import 'package:flutter/material.dart';
+import 'package:fruit_hub/core/routes/route_name.dart';
+import 'package:fruit_hub/features/on_boarding/presentation/views/on_boarding_view.dart';
+import 'package:fruit_hub/features/splash/presentation/views/splash_view.dart';
+
+class RouteHandler {
+  static Route? generateRoute(RouteSettings settings) {
+    switch (settings.name) {
+      case RouteName.splash:
+        return MaterialPageRoute(builder: (_) => const SplashView());
+        case RouteName.onBoarding:
+        return MaterialPageRoute(builder: (_) => const OnBoardingView());
+    }
+    return null;
+  }
+}
