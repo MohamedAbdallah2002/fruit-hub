@@ -7,11 +7,12 @@ class PageViewItem extends StatelessWidget {
     required this.image,
     required this.backgroundColor,
     required this.subtitle,
-    required this.title,
+    required this.title, required this.isVisable,
   });
   final String image, backgroundColor;
   final String subtitle;
   final Widget title;
+  final bool isVisable;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -36,8 +37,22 @@ class PageViewItem extends StatelessWidget {
                   ),
                 ),
               ),
+              Visibility(
+                visible: isVisable,
+                child: Padding(
+                  padding: const EdgeInsets.all(32.0),
+                  child: Text("تخط", style: TextStyle(fontSize: 20)),
+                ),
+              ),
             ],
           ),
+        ),
+        SizedBox(height: 32),
+        title,
+        SizedBox(height: 16),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Text(subtitle, textAlign: TextAlign.center),
         ),
       ],
     );
