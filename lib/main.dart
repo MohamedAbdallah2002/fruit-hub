@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:fruit_hub/core/config/shared_preferences_singlton.dart';
 import 'package:fruit_hub/core/routes/route_handler.dart';
 import 'package:fruit_hub/generated/l10n.dart';
 
-void main() {
+void main()async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Prefs.init();
   runApp(const FruitHub());
 }
 
@@ -22,7 +25,11 @@ class FruitHub extends StatelessWidget {
       supportedLocales: S.delegate.supportedLocales,
       locale: const Locale('ar', ''),
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.light().copyWith(scaffoldBackgroundColor: Colors.white),
+      
+      theme: ThemeData(
+        fontFamily: "Cairo",
+        primaryColorLight: Colors.white,
+      ),
       onGenerateRoute: RouteHandler.generateRoute,
     );
   }

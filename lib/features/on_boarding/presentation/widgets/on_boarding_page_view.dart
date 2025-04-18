@@ -13,9 +13,7 @@ class OnBoardingPageView extends StatelessWidget {
       controller: pageController,
       children: [
         PageViewItem(
-          isVisable:
-              (pageController.hasClients ? pageController.page!.round() : 0) ==
-              0,
+          isVisable: true,
           image: Assets.imagesPageViewItem1Image,
           backgroundColor: Assets.imagesPageViewItem1BackgroundImage,
           subtitle: '''
@@ -25,15 +23,15 @@ class OnBoardingPageView extends StatelessWidget {
             children: [
               Text('مرحبًا بك في', style: TextStyles.bold23),
 
-               Text(
-                " HUB"
-                , style: TextStyles.bold23.copyWith(
+              Text(
+                " HUB",
+                style: TextStyles.bold23.copyWith(
                   color: AppColors.secondaryColor,
                 ),
               ),
-               Text(
-                'Fruit'
-                , style: TextStyles.bold23.copyWith(
+              Text(
+                'Fruit',
+                style: TextStyles.bold23.copyWith(
                   color: AppColors.primaryColor,
                 ),
               ),
@@ -41,21 +39,12 @@ class OnBoardingPageView extends StatelessWidget {
           ),
         ),
         PageViewItem(
-          isVisable:
-              (pageController.hasClients ? pageController.page!.round() : 0) ==
-              0,
+          isVisable: false,
           image: Assets.imagesPageViewItem2Image,
           backgroundColor: Assets.imagesPageViewItem2BackgroundImage,
           subtitle: ''' 
 نقدم لك أفضل الفواكه المختارة بعناية. اطلع على التفاصيل والصور والتقييمات لتتأكد من اختيار الفاكهة المثالية''',
-          title: Text(
-            'ابحث وتسوق',
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.w600,
-              color: Colors.black,
-            ),
-          ),
+          title: Text('ابحث وتسوق', style: TextStyles.bold23),
         ),
       ],
     );
