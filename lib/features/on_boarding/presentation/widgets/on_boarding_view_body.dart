@@ -70,7 +70,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
           maintainState: true,
           maintainSize: true,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            padding: const EdgeInsets.symmetric(horizontal: kHorizintalPadding),
             child: CustomButton(onPressed: () {
               Prefs.setBool(kIsOnBoardingViewSeen, true);
               Navigator.pushReplacement(

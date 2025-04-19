@@ -4,7 +4,7 @@ import 'package:fruit_hub/core/config/shared_preferences_singlton.dart';
 import 'package:fruit_hub/core/routes/route_handler.dart';
 import 'package:fruit_hub/generated/l10n.dart';
 
-void main()async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Prefs.init();
   runApp(const FruitHub());
@@ -25,10 +25,10 @@ class FruitHub extends StatelessWidget {
       supportedLocales: S.delegate.supportedLocales,
       locale: const Locale('ar', ''),
       debugShowCheckedModeBanner: false,
-      
+
       theme: ThemeData(
         fontFamily: "Cairo",
-        primaryColorLight: Colors.white,
+        scaffoldBackgroundColor: Colors.white,
       ),
       onGenerateRoute: RouteHandler.generateRoute,
     );
