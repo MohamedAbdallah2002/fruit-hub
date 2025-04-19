@@ -14,7 +14,7 @@ class RouteHandler {
         return MaterialPageRoute(builder: (_) => const OnBoardingView());
       case RouteName.logIn:
         return MaterialPageRoute(builder: (_) => const LoginView());
-        case RouteName.signUp:
+      case RouteName.signUp:
         return MaterialPageRoute(builder: (_) => const SignUpView());
     }
     return null;
