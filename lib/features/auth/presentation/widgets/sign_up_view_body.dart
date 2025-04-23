@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/core/constant/consts.dart';
@@ -34,23 +32,23 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                 SizedBox(height: 24),
                 CustomTextFormField(
                   onSaved: (value) {
-                    name=value!;
+                    name = value!;
                   },
                   hintText: "الاسم كامل",
                   textInputType: TextInputType.text,
                 ),
                 SizedBox(height: 16),
                 CustomTextFormField(
-                   onSaved: (value) {
-                    email=value!;
+                  onSaved: (value) {
+                    email = value!;
                   },
                   hintText: "البريد الالكتروني",
                   textInputType: TextInputType.emailAddress,
                 ),
                 SizedBox(height: 16),
                 CustomTextFormField(
-                   onSaved: (value) {
-                    password=value!;
+                  onSaved: (value) {
+                    password = value!;
                   },
                   hintText: "كلمة المرور",
                   textInputType: TextInputType.visiblePassword,
