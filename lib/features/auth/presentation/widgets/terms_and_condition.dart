@@ -4,8 +4,8 @@ import 'package:fruit_hub/core/utils/app_text_style.dart';
 import 'package:fruit_hub/features/auth/presentation/widgets/custom_check_box.dart';
 
 class TermsAndCondition extends StatefulWidget {
-  const TermsAndCondition({super.key});
-
+  const TermsAndCondition({super.key, required this.onChanged});
+final ValueChanged<bool> onChanged;
   @override
   State<TermsAndCondition> createState() => _TermsAndConditionState();
 }
@@ -20,6 +20,7 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
         CustomCheckBox(
           onChecked: (value) {
             isTermsAccepted = value;
+            widget.onChanged(value);
             setState(() {});
           },
           isChecked: isTermsAccepted,
