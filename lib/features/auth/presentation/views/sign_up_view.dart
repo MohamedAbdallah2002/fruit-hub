@@ -1,15 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruit_hub/core/config/get_it.dart';
 import 'package:fruit_hub/core/widgets/custom_app_bar.dart';
-import 'package:fruit_hub/features/auth/presentation/widgets/sign_up_view_body.dart';
+import 'package:fruit_hub/features/auth/domain/repos/auth_repo.dart';
+import 'package:fruit_hub/features/auth/presentation/cubits/signup_cubit/signup_cubit.dart';
+import 'package:fruit_hub/features/auth/presentation/widgets/signup_view_body_bloc_consumer.dart';
 
 class SignUpView extends StatelessWidget {
   const SignUpView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: buildAppBar(context, title: "حساب جديد"),
-      body: SignUpViewBody(),
+    return BlocProvider(
+      create: (context) => SignupCubit(
+        getIt<AuthRepo>(),
+      ),
+      child: Scaffold(
+        appBar: buildAppBar(context, title: "حساب جديد"),
+        body: SignupViewBodyBlocConsumer(),
+      ),
     );
   }
 }
