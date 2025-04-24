@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fruit_hub/core/config/shared_preferences_singlton.dart';
 import 'package:fruit_hub/core/constant/consts.dart';
 import 'package:fruit_hub/core/utils/app_images.dart';
-import 'package:fruit_hub/features/auth/presentation/views/login_view.dart';
+import 'package:fruit_hub/features/auth/presentation/views/sign_in_view.dart';
 import 'package:fruit_hub/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:svg_flutter/svg_flutter.dart';
 
@@ -43,7 +43,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
       if (isOnBoardingViewSeen) {
   Navigator.pushReplacement(
     context,
-    MaterialPageRoute(builder: (context) => const LoginView()),
+    MaterialPageRoute(builder: (context) => const SigninView()),
   );
 }else{
   Navigator.pushReplacement(

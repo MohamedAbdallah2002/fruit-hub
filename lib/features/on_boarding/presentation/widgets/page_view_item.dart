@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fruit_hub/core/config/shared_preferences_singlton.dart';
 import 'package:fruit_hub/core/constant/consts.dart';
 import 'package:fruit_hub/core/utils/app_text_style.dart';
-import 'package:fruit_hub/features/auth/presentation/views/login_view.dart';
+import 'package:fruit_hub/features/auth/presentation/views/sign_in_view.dart';
 import 'package:svg_flutter/svg_flutter.dart';
 
 class PageViewItem extends StatelessWidget {
@@ -50,7 +50,7 @@ class PageViewItem extends StatelessWidget {
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const LoginView(),
+                        builder: (context) => const SigninView(),
                       ),
                     );
                   },
