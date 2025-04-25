@@ -27,13 +27,15 @@ class AuthRepoImpl extends AuthRepo {
       return right(UserModel.fromFirebaseUser(user));
     } on CustomException catch (e) {
       return left(ServerFailure(e.message));
-    }
-    catch (e) {
-      log("Exception in AuthRepoImpl.createUserWithEmailAndPassword : ${e.toString()}");
+    } catch (e) {
+      log(
+        "Exception in AuthRepoImpl.createUserWithEmailAndPassword : ${e.toString()}",
+      );
 
-      return left(ServerFailure('.حدث خطأ, حاول مره اخري')) ;
+      return left(ServerFailure('.حدث خطأ, حاول مره اخري'));
     }
   }
+
   Future<Either<Failure, UserEntity>> signInWithEmailAndPassword(
     String email,
     String password,
@@ -47,10 +49,42 @@ class AuthRepoImpl extends AuthRepo {
     } on CustomException catch (e) {
       return left(ServerFailure(e.message));
     } catch (e) {
-      log("Exception in AuthRepoImpl.signInWithEmailAndPassword : ${e.toString()}");
+      log(
+        "Exception in AuthRepoImpl.signInWithEmailAndPassword : ${e.toString()}",
+      );
 
-      return left(ServerFailure('.حدث خطأ, حاول مره اخري')) ;
+      return left(ServerFailure('.حدث خطأ, حاول مره اخري'));
     }
   }
-  
+
+  @override
+  Future<Either<Failure, UserEntity>> signInWithGoogle() async {
+    try {
+      var user = await firebaseAuthService.signInWithGoogle();
+      return right(UserModel.fromFirebaseUser(user));
+    } catch (e) {
+      log("Exception in AuthRepoImpl.signInWithGoogle : ${e.toString()}");
+
+      return left(ServerFailure('.حدث خطأ, حاول مره اخري'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, UserEntity>> signInWithFacebook() async{
+    try {
+      var user = await firebaseAuthService.signInWithFacebook();
+      return right(UserModel.fromFirebaseUser(user));
+    } catch (e) {
+      log("Exception in AuthRepoImpl.signInWithFacebook : ${e.toString()}");
+
+      return left(ServerFailure('.حدث خطأ, حاول مره اخري'));
+    }
+    
+  }
+
+  @override
+  Future<Either<Failure, UserEntity>> signInWithApple() {
+    // TODO: implement signInWithApple
+    throw UnimplementedError();
+  }
 }
