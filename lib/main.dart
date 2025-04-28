@@ -11,10 +11,8 @@ import 'package:fruit_hub/generated/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Bloc.observer=CustomBlocObserver();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  Bloc.observer = CustomBlocObserver();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await Prefs.init();
   setupGitIt();
   runApp(const FruitHub());
